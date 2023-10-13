@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 type FilterWrapperProps = {
   filterHighlight: number;
-}
+};
 
 export const HighlightNewsWrapper = styled.section`
   display: flex;
@@ -41,7 +41,7 @@ export const HighlightNewsWrapper = styled.section`
     font-weight: 500;
     cursor: pointer;
   }
-`
+`;
 
 export const FilterWrapper = styled.section<FilterWrapperProps>`
   display: flex;
@@ -61,7 +61,7 @@ export const FilterWrapper = styled.section<FilterWrapperProps>`
     cursor: pointer;
   }
 
-  & button:nth-of-type(${ (props) => (props.filterHighlight) }) {
+  & button:nth-of-type(${(props) => (props.filterHighlight)}) {
     border-bottom: 2px solid #0095DA;
   }
-`
+`;

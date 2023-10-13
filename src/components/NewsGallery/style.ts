@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-
 export const NewsGalleryWrapper = styled.section`
   display: flex;
   flex-wrap: wrap;
@@ -10,9 +9,9 @@ export const NewsGalleryWrapper = styled.section`
   & li {
     width: 100%;
   }
-`
+`;
 
-export const NewsCard = styled.section`
+export const NewsCard = styled.li`
   background-color: #FDFDFD;
   padding: 1rem;
   border-radius: 0.2rem;
@@ -50,4 +49,4 @@ export const NewsCard = styled.section`
     font-weight: 500;
     cursor: pointer;
   }
-`
+`;

@@ -11,4 +11,4 @@ export const HeaderWrapper = styled.header`
         text-align: center;
         padding: 20px;
     }
-`
+`;

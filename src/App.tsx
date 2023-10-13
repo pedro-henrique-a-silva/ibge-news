@@ -7,7 +7,7 @@ function App() {
     <>
       <GlobalStyles />
       <Routes>
-        
+
         <Route path="/" element={ <Home /> } />
       </Routes>
     </>
