@@ -36,7 +36,7 @@ footer, header, hgroup, menu, nav, section {
 
 body {
   line-height: 1;
-  background-color: #B9C0C3;
+  background-color: #E9F1FA;
   font-family: 'Poppins', sans-serif;
   /* transition: all 300ms ease; */
 }
