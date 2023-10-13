@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import NewsContext  from './NewsContext';
 import { NewsType } from '../types';
+import { fetchAPI } from '../utils/fetchAPI';
 
 type NewsProviderProps = {
     children: React.ReactNode
@@ -11,9 +12,8 @@ function NewsProvider(props: NewsProviderProps) {
 
 	useEffect(() => {
 		const fetchNews = async () => {
-			const response = await fetch('https://servicodados.ibge.gov.br/api/v3/noticias/?qtd=100');
-			const data = await response.json();
-			setNews(data.items);
+			const apiData = await fetchAPI(200);
+			setNews(apiData.items);
 		}
 		try {
 			fetchNews();
