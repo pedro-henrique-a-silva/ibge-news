@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import NewsContext from "../context/NewsContext";
 import Header from "../components/Header/Header";
-import { HighlightNewsWrapper } from './style';
+import { FilterWrapper, HighlightNewsWrapper } from './style';
 
 const BASE_URL_IMAGES = "https://agenciadenoticias.ibge.gov.br/"
 
@@ -35,6 +35,13 @@ function Home() {
           </a>
         </div>
       </HighlightNewsWrapper>
+      <FilterWrapper>
+        <button>Mais Recentes</button>
+        <button>Releases</button>
+        <button>Notícias</button>
+        <button>Favoritos</button>
+      </FilterWrapper>
+      
 
     </div>
   );
