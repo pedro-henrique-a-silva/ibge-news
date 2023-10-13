@@ -1,16 +1,16 @@
 export type NewsType = {
-    id: Number,
-    tipo: String,
-    titulo: String,
-    introducao: String,
-    data_publicacao: String,
+    id: number,
+    tipo: string,
+    titulo: string,
+    introducao: string,
+    data_publicacao: string,
     // produto_id: 9201,
     // produtos: "9201|Levantamento Sistemático da Produção Agrícola|levantamento-sistematico-da-producao-agricola|2071",
-    editorias: String,
-    imagens: String,
+    editorias: string,
+    imagens: string,
     // produtos_relacionados: "9201",
-    destaque: Boolean,
-    link: String
+    destaque: boolean,
+    link: string
 }
 
 export type NewsContextType = {
