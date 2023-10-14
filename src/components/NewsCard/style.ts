@@ -16,6 +16,7 @@ export const NewsCardStyled = styled.li`
   padding: 1rem;
   border-radius: 0.2rem;
   box-shadow: 0 0 10px hsla(199, 17%, 18%, 0.1);
+      border: 1px solid hsla(199, 17%, 18%, 0.2);
   /* animation: ${appearFromBottom} 0.7s; */
   
   & img {
@@ -37,21 +38,22 @@ export const NewsCardStyled = styled.li`
     color: #1E2325;
   }
 
-  & p {
-    font-size: 0.9rem;
-    line-height: 1.1rem;
-    margin-bottom: 0.7rem;
-    color: #32373B;
-  }
-
 `;
 
 export const ResumeIntro = styled.p`
   min-height: 140px;
-  font-size: 0.9rem;
-  /* line-height: 1.1rem;
+  font-size: 0.8rem;
+  line-height: 1.1rem;
   margin-bottom: 0.7rem;
-  color: #32373B; */
+  color: #32373B;
+
+`;
+
+export const DaysParagraph = styled.p`
+  font-size: 0.9rem;
+  line-height: 1.1rem;
+  margin-bottom: 0.7rem;
+  color: #32373B;
 `;
 
 export const FavoritWrapper = styled.div`
@@ -59,4 +61,5 @@ export const FavoritWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 1rem;
+  font-size: 0.7rem;
 `;

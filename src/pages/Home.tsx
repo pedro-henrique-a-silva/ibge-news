@@ -2,11 +2,9 @@ import { useContext, useState } from 'react';
 import NewsContext from '../context/NewsContext';
 import Header from '../components/Header/Header';
 import NewsGallery from '../components/NewsGallery/NewsGallery';
-import { FilterWrapper, HighlightNewsWrapper, MainWrapper } from './style';
-import ReadMoreButton from '../components/ReadMoreButton/ReadMoreButton';
-import { fetchAPIFiltered, fetchAPI } from '../utils/fetchAPI';
-
-const BASE_URL_IMAGES = 'https://agenciadenoticias.ibge.gov.br/';
+import { FilterWrapper, MainWrapper } from './style';
+import { fetchAPIFiltered, fetchAPI } from '../utils/utils';
+import HighlightNews from '../components/HighlightNews/HighlightNews';
 
 const FILTERS_NAME = {
   1: 'destaques',
@@ -60,24 +58,7 @@ function Home() {
     <>
       <Header />
       <MainWrapper>
-        <HighlightNewsWrapper id="highlight-news">
-          <div>
-            <img
-              src={ `${BASE_URL_IMAGES}${JSON
-                .parse(highlightNews.imagens as string).image_intro}` }
-              alt=""
-            />
-          </div>
-          <div>
-            <h3>{highlightNews.titulo}</h3>
-            <p>{highlightNews.introducao}</p>
-            <ReadMoreButton
-              href={ highlightNews.link }
-            >
-              Leia a notícia aqui
-            </ReadMoreButton>
-          </div>
-        </HighlightNewsWrapper>
+        <HighlightNews highlightNews={ highlightNews } />
         <FilterWrapper filterHighlight={ filterHighlight }>
           <button
             onClick={ () => handleFilter(1) }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import NewsContext from './NewsContext';
 import { NewsType } from '../types';
-import { fetchAPI } from '../utils/fetchAPI';
+import { fetchAPI } from '../utils/utils';
 
 type NewsProviderProps = {
   children: React.ReactNode

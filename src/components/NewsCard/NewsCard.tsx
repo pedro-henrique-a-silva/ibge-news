@@ -1,10 +1,13 @@
 import { Heart } from '@phosphor-icons/react';
 import { useEffect, useState } from 'react';
-import { NewsCardStyled, FavoritWrapper, ResumeIntro } from './style';
+import {
+  NewsCardStyled,
+  FavoritWrapper,
+  ResumeIntro,
+  DaysParagraph } from './style';
 import ReadMoreButton from '../ReadMoreButton/ReadMoreButton';
 import { NewsType } from '../../types';
-
-const BASE_URL_IMAGES = 'https://agenciadenoticias.ibge.gov.br/';
+import { differenceInDays, BASE_URL_IMAGES } from '../../utils/utils';
 
 type NewsCardProps = {
   newsItem: NewsType;
@@ -13,20 +16,6 @@ type NewsCardProps = {
 function NewsCard(props: NewsCardProps) {
   const { newsItem } = props;
   const [isFavorite, setIsFavorite] = useState(false);
-
-  const differenceInDays = (date: string) => {
-    const partes = date.split(' ');
-    const dataPartes = partes[0].split('/');
-    const novaData = `${dataPartes[2]}/${dataPartes[1]}/${dataPartes[0]}`;
-    const dataFornecida = novaData;
-
-    const dataAlvo = new Date(dataFornecida);
-    const dataAtual = new Date();
-    const diferencaEmMilissegundos = Math.abs(dataAlvo.getTime() - dataAtual.getTime());
-    const diferencaEmDias = Math.floor(diferencaEmMilissegundos / (1000 * 60 * 60 * 24));
-
-    return diferencaEmDias;
-  };
 
   const handleFavorite = () => {
     const favorites = JSON.parse(localStorage.getItem('favoritesNews') as string) || [];
@@ -81,11 +70,11 @@ function NewsCard(props: NewsCardProps) {
         </ReadMoreButton>
       </div>
       <FavoritWrapper>
-        <p>
+        <DaysParagraph>
           {daysBefore}
           {' '}
           dias atrás
-        </p>
+        </DaysParagraph>
         {(isFavorite)
           ? (<Heart
               onClick={ handleFavorite }
