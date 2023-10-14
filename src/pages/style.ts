@@ -30,17 +30,6 @@ export const HighlightNewsWrapper = styled.section`
     color: #32373B;
   }
 
-  & a {
-    display: inline-block;
-    padding: 0.5rem;
-    text-decoration: none;
-    border-radius: 0.2rem;
-    background-color: #0095DA;
-    color: #263136;
-    font-size: 0.9rem;
-    font-weight: 500;
-    cursor: pointer;
-  }
 `;
 
 export const FilterWrapper = styled.section<FilterWrapperProps>`

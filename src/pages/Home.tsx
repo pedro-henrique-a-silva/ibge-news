@@ -3,6 +3,7 @@ import NewsContext from '../context/NewsContext';
 import Header from '../components/Header/Header';
 import NewsGallery from '../components/NewsGallery/NewsGallery';
 import { FilterWrapper, HighlightNewsWrapper } from './style';
+import ReadMoreButton from '../components/ReadMoreButton/ReadMoreButton';
 
 const BASE_URL_IMAGES = 'https://agenciadenoticias.ibge.gov.br/';
 
@@ -34,13 +35,11 @@ function Home() {
         <div>
           <h3>{highlightNews.titulo}</h3>
           <p>{highlightNews.introducao}</p>
-          <a
+          <ReadMoreButton
             href={ highlightNews.link }
-            target="_blank"
-            rel="noreferrer"
           >
             Leia a notícia aqui
-          </a>
+          </ReadMoreButton>
         </div>
       </HighlightNewsWrapper>
       <FilterWrapper filterHighlight={ filterHighlight }>

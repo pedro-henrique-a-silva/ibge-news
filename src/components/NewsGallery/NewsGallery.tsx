@@ -1,5 +1,6 @@
 import { NewsType } from '../../types';
 import { NewsGalleryWrapper, NewsCard } from './style';
+import ReadMoreButton from '../ReadMoreButton/ReadMoreButton';
 
 const BASE_URL_IMAGES = 'https://agenciadenoticias.ibge.gov.br/';
 
@@ -23,13 +24,11 @@ function NewsGallery(props: NewsGalleryProps) {
           <div>
             <h3>{newsItem.titulo}</h3>
             <p>{newsItem.introducao}</p>
-            <a
+            <ReadMoreButton
               href={ newsItem.link }
-              target="_blank"
-              rel="noreferrer"
             >
               Leia a notícia aqui
-            </a>
+            </ReadMoreButton>
           </div>
         </NewsCard>
       ))}

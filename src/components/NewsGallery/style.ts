@@ -13,6 +13,7 @@ export const NewsGalleryWrapper = styled.section`
 
 export const NewsCard = styled.li`
   background-color: #FDFDFD;
+  list-style: none;
   padding: 1rem;
   border-radius: 0.2rem;
   box-shadow: 0 0 10px hsla(199, 17%, 18%, 0.1);
@@ -38,15 +39,4 @@ export const NewsCard = styled.li`
     color: #32373B;
   }
 
-  & a {
-    display: inline-block;
-    padding: 0.5rem;
-    text-decoration: none;
-    border-radius: 0.2rem;
-    background-color: #0095DA;
-    color: #263136;
-    font-size: 0.9rem;
-    font-weight: 500;
-    cursor: pointer;
-  }
 `;
