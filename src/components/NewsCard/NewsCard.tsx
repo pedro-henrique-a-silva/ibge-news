@@ -14,6 +14,20 @@ function NewsCard(props: NewsCardProps) {
   const { newsItem } = props;
   const [isFavorite, setIsFavorite] = useState(false);
 
+  const differenceInDays = (date: string) => {
+    const partes = date.split(' ');
+    const dataPartes = partes[0].split('/');
+    const novaData = `${dataPartes[2]}/${dataPartes[1]}/${dataPartes[0]}`;
+    const dataFornecida = novaData;
+
+    const dataAlvo = new Date(dataFornecida);
+    const dataAtual = new Date();
+    const diferencaEmMilissegundos = Math.abs(dataAlvo.getTime() - dataAtual.getTime());
+    const diferencaEmDias = Math.floor(diferencaEmMilissegundos / (1000 * 60 * 60 * 24));
+
+    return diferencaEmDias;
+  };
+
   const handleFavorite = () => {
     const favorites = JSON.parse(localStorage.getItem('favoritesNews') as string) || [];
 
@@ -46,6 +60,8 @@ function NewsCard(props: NewsCardProps) {
     }
   }, [newsItem.id]);
 
+  const daysBefore = differenceInDays(newsItem.data_publicacao);
+
   return (
     <NewsCardStyled>
       <div>
@@ -65,16 +81,21 @@ function NewsCard(props: NewsCardProps) {
         </ReadMoreButton>
       </div>
       <FavoritWrapper>
+        <p>
+          {daysBefore}
+          {' '}
+          dias atrás
+        </p>
         {(isFavorite)
           ? (<Heart
               onClick={ handleFavorite }
               fill="red"
               weight="fill"
-              size={ 32 }
+              size={ 24 }
           />)
           : (<Heart
               onClick={ handleFavorite }
-              size={ 32 }
+              size={ 24 }
           />)}
 
       </FavoritWrapper>

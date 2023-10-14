@@ -44,5 +44,7 @@ export const NewsCardStyled = styled.li`
 export const FavoritWrapper = styled.div`
   width: 100%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
 `;
