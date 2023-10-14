@@ -15,4 +15,5 @@ export type NewsType = {
 
 export type NewsContextType = {
   news: NewsType[],
+  updateNews: (newNews: NewsType[]) => void,
 };

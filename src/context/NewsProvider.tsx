@@ -10,9 +10,13 @@ function NewsProvider(props: NewsProviderProps) {
   const { children } = props;
   const [news, setNews] = useState<NewsType[]>([]);
 
+  const updateNews = (newNews: NewsType[]) => {
+    setNews(newNews);
+  };
+
   useEffect(() => {
     const fetchNews = async () => {
-      const apiData = await fetchAPI(200);
+      const apiData = await fetchAPI(10);
       setNews(apiData.items);
     };
     try {
@@ -24,6 +28,7 @@ function NewsProvider(props: NewsProviderProps) {
 
   const contextValue = {
     news,
+    updateNews,
   };
   return (
     <NewsContext.Provider value={ contextValue }>

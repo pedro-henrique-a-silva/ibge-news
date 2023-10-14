@@ -25,7 +25,6 @@ export const NewsGalleryWrapper = styled.ul`
 
 export const NewsCard = styled.li`
   background-color: #FDFDFD;
-  /* list-style: none; */
   padding: 1rem;
   border-radius: 0.2rem;
   box-shadow: 0 0 10px hsla(199, 17%, 18%, 0.1);
@@ -39,7 +38,7 @@ export const NewsCard = styled.li`
   }
 
   & h3 {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: 500;
     margin-bottom: 0.7rem;
     color: #1E2325;
