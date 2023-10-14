@@ -1,14 +1,26 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 type FilterWrapperProps = {
   filterHighlight: number;
 };
+
+const appearFromBottom = keyframes`
+  from {
+    transform: translateY(60%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+`;
 
 export const HighlightNewsWrapper = styled.section`
   display: flex;
   flex-direction: column;
   gap: 2rem;
   margin: 2rem 1rem;
+  animation: ${appearFromBottom} 0.7s;
 
   & img {
     width: 100%;

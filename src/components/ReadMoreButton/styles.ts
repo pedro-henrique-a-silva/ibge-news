@@ -10,4 +10,8 @@ export const ReadMoreButtonStyled = styled.a`
   font-size: 0.9rem;
   font-weight: 500;
   cursor: pointer;
+
+  &:hover {
+    background-color: hsla(199, 100%, 43%, 0.9);
+  }
 `;

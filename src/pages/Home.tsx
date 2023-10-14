@@ -13,7 +13,7 @@ function Home() {
 
   const highlightNews = news[0];
 
-  const handleFilterHighlight = (filter: number) => {
+  const handleFilter = (filter: number) => {
     setFilterHighlight(filter);
   };
 
@@ -44,22 +44,22 @@ function Home() {
       </HighlightNewsWrapper>
       <FilterWrapper filterHighlight={ filterHighlight }>
         <button
-          onClick={ () => handleFilterHighlight(1) }
+          onClick={ () => handleFilter(1) }
         >
           Mais Recentes
         </button>
         <button
-          onClick={ () => handleFilterHighlight(2) }
+          onClick={ () => handleFilter(2) }
         >
           Releases
         </button>
         <button
-          onClick={ () => handleFilterHighlight(3) }
+          onClick={ () => handleFilter(3) }
         >
           Notícias
         </button>
         <button
-          onClick={ () => handleFilterHighlight(4) }
+          onClick={ () => handleFilter(4) }
         >
           Favoritos
         </button>
