@@ -20,15 +20,20 @@ export const NewsCardStyled = styled.li`
   
   & img {
     width: 100%;
+    height: 201px;
     border-radius: 0.2rem;
     box-shadow: 0 0 10px hsla(199, 17%, 18%, 0.1);
     margin-bottom: 0.5rem;
   }
 
   & h3 {
+    display: flex;
+    align-content: center;
+    align-items: center;
     font-size: 1.3rem;
     font-weight: 500;
     margin-bottom: 0.7rem;
+    min-height: 120px;
     color: #1E2325;
   }
 
@@ -41,10 +46,17 @@ export const NewsCardStyled = styled.li`
 
 `;
 
+export const ResumeIntro = styled.p`
+  min-height: 140px;
+  font-size: 0.9rem;
+  /* line-height: 1.1rem;
+  margin-bottom: 0.7rem;
+  color: #32373B; */
+`;
+
 export const FavoritWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   margin-top: 1rem;
 `;

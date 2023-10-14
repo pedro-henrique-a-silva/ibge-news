@@ -1,6 +1,6 @@
 import { Heart } from '@phosphor-icons/react';
 import { useEffect, useState } from 'react';
-import { NewsCardStyled, FavoritWrapper } from './style';
+import { NewsCardStyled, FavoritWrapper, ResumeIntro } from './style';
 import ReadMoreButton from '../ReadMoreButton/ReadMoreButton';
 import { NewsType } from '../../types';
 
@@ -73,7 +73,7 @@ function NewsCard(props: NewsCardProps) {
       </div>
       <div>
         <h3>{newsItem.titulo}</h3>
-        <p>{newsItem.introducao}</p>
+        <ResumeIntro>{newsItem.introducao}</ResumeIntro>
         <ReadMoreButton
           href={ newsItem.link }
         >

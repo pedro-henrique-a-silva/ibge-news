@@ -2,7 +2,7 @@ import { useContext, useState } from 'react';
 import NewsContext from '../context/NewsContext';
 import Header from '../components/Header/Header';
 import NewsGallery from '../components/NewsGallery/NewsGallery';
-import { FilterWrapper, HighlightNewsWrapper } from './style';
+import { FilterWrapper, HighlightNewsWrapper, MainWrapper } from './style';
 import ReadMoreButton from '../components/ReadMoreButton/ReadMoreButton';
 import { fetchAPIFiltered, fetchAPI } from '../utils/fetchAPI';
 
@@ -59,48 +59,50 @@ function Home() {
   return (
     <>
       <Header />
-      <HighlightNewsWrapper id="highlight-news">
-        <div>
-          <img
-            src={ `${BASE_URL_IMAGES}${JSON
-              .parse(highlightNews.imagens as string).image_intro}` }
-            alt=""
-          />
-        </div>
-        <div>
-          <h3>{highlightNews.titulo}</h3>
-          <p>{highlightNews.introducao}</p>
-          <ReadMoreButton
-            href={ highlightNews.link }
+      <MainWrapper>
+        <HighlightNewsWrapper id="highlight-news">
+          <div>
+            <img
+              src={ `${BASE_URL_IMAGES}${JSON
+                .parse(highlightNews.imagens as string).image_intro}` }
+              alt=""
+            />
+          </div>
+          <div>
+            <h3>{highlightNews.titulo}</h3>
+            <p>{highlightNews.introducao}</p>
+            <ReadMoreButton
+              href={ highlightNews.link }
+            >
+              Leia a notícia aqui
+            </ReadMoreButton>
+          </div>
+        </HighlightNewsWrapper>
+        <FilterWrapper filterHighlight={ filterHighlight }>
+          <button
+            onClick={ () => handleFilter(1) }
           >
-            Leia a notícia aqui
-          </ReadMoreButton>
-        </div>
-      </HighlightNewsWrapper>
-      <FilterWrapper filterHighlight={ filterHighlight }>
-        <button
-          onClick={ () => handleFilter(1) }
-        >
-          Mais Recentes
-        </button>
-        <button
-          onClick={ () => handleFilter(2) }
-        >
-          Releases
-        </button>
-        <button
-          onClick={ () => handleFilter(3) }
-        >
-          Notícias
-        </button>
-        <button
-          onClick={ () => handleFilter(4) }
-        >
-          Favoritos
-        </button>
-      </FilterWrapper>
+            Mais Recentes
+          </button>
+          <button
+            onClick={ () => handleFilter(2) }
+          >
+            Releases
+          </button>
+          <button
+            onClick={ () => handleFilter(3) }
+          >
+            Notícias
+          </button>
+          <button
+            onClick={ () => handleFilter(4) }
+          >
+            Favoritos
+          </button>
+        </FilterWrapper>
 
-      <NewsGallery news={ news } />
+        <NewsGallery news={ news } />
+      </MainWrapper>
 
     </>
   );
