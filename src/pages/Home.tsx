@@ -37,7 +37,7 @@ function Home() {
     }
 
     if (filter === 4) {
-      const favorites = JSON.parse(localStorage.getItem('favorites') as string) || [];
+      const favorites = JSON.parse(localStorage.getItem('favoritesNews') as string) || [];
 
       if (favorites.length > 0) {
         updateNews(favorites);
