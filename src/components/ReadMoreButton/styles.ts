@@ -7,6 +7,7 @@ export const ReadMoreButtonStyled = styled.a`
   border-radius: 0.2rem;
   background-color: #0095DA;
   color: #263136;
+  text-transform: uppercase;
   font-size: 0.9rem;
   font-weight: 500;
   cursor: pointer;

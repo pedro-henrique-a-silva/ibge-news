@@ -10,7 +10,6 @@ export const NewsGalleryWrapper = styled.ul`
   
 
   @media (max-width: 768px) {
-    justify-content: center;
     align-items: stretch;
     
     & img {
@@ -20,7 +19,7 @@ export const NewsGalleryWrapper = styled.ul`
 
   @media (min-width: 769px) {
     max-width: 1126px;
-    justify-content: space-between;
+    justify-content: center;
     align-items: stretch;
   }
  

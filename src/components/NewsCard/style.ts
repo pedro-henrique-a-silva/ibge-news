@@ -13,7 +13,7 @@ const appearFromBottom = keyframes`
 
 export const NewsCardStyled = styled.li`
   background-color: #FDFDFD;
-  padding: 1rem;
+  padding: 1rem 1rem 0.5rem 1rem ;
   border-radius: 0.2rem;
   box-shadow: 0 0 10px hsla(199, 17%, 18%, 0.1);
       border: 1px solid hsla(199, 17%, 18%, 0.2);
@@ -21,7 +21,7 @@ export const NewsCardStyled = styled.li`
   
   & img {
     width: 100%;
-    height: 201px;
+    height: 150px;
     border-radius: 0.2rem;
     box-shadow: 0 0 10px hsla(199, 17%, 18%, 0.1);
     margin-bottom: 0.5rem;
@@ -36,12 +36,13 @@ export const NewsCardStyled = styled.li`
     margin-bottom: 0.7rem;
     min-height: 120px;
     color: #1E2325;
+    line-height: 1.1;
   }
 
 `;
 
 export const ResumeIntro = styled.p`
-  min-height: 140px;
+  min-height: 120px;
   font-size: 0.8rem;
   line-height: 1.1rem;
   margin-bottom: 0.7rem;
