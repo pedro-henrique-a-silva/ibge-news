@@ -16,7 +16,7 @@ export const NewsCardStyled = styled.li`
   padding: 1rem 1rem 0.5rem 1rem ;
   border-radius: 0.2rem;
   box-shadow: 0 0 10px hsla(199, 17%, 18%, 0.1);
-      border: 1px solid hsla(199, 17%, 18%, 0.2);
+  border: 1px solid hsla(199, 17%, 18%, 0.2);
   /* animation: ${appearFromBottom} 0.7s; */
   
   & img {
@@ -29,11 +29,9 @@ export const NewsCardStyled = styled.li`
 
   & h3 {
     display: flex;
-    align-content: center;
     align-items: center;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 500;
-    margin-bottom: 0.7rem;
     min-height: 120px;
     color: #1E2325;
     line-height: 1.1;
@@ -43,7 +41,7 @@ export const NewsCardStyled = styled.li`
 
 export const ResumeIntro = styled.p`
   min-height: 120px;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   line-height: 1.1rem;
   margin-bottom: 0.7rem;
   color: #32373B;
@@ -63,4 +61,8 @@ export const FavoritWrapper = styled.div`
   justify-content: space-between;
   margin-top: 1rem;
   font-size: 0.7rem;
+
+  & svg {
+    cursor: pointer;
+  }
 `;

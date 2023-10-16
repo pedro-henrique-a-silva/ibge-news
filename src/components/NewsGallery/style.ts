@@ -3,10 +3,10 @@ import styled from 'styled-components';
 export const NewsGalleryWrapper = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 0.9rem;
   /* margin: 2rem 0; */
   /* justify-content: center; */
-  flex: 1;
+  /* flex: 1; */
   
 
   @media (max-width: 768px) {
@@ -24,6 +24,6 @@ export const NewsGalleryWrapper = styled.ul`
   }
  
   & li {
-    width: 350px;
+    width: 270px;
   }
 `;
