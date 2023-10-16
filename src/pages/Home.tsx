@@ -5,6 +5,8 @@ import NewsGallery from '../components/NewsGallery/NewsGallery';
 import { FilterWrapper, MainWrapper } from './style';
 import { fetchAPIFiltered, fetchAPI } from '../utils/utils';
 import HighlightNews from '../components/HighlightNews/HighlightNews';
+import { NewsType } from '../types';
+import MoreNews from '../components/MoreNews/MoreNews';
 
 const FILTERS_NAME = {
   1: 'destaques',
@@ -15,15 +17,16 @@ const FILTERS_NAME = {
 
 function Home() {
   const { news, updateNews } = useContext(NewsContext);
+  const [favorites, setFavorites] = useState<NewsType[]>([]);
   const [filterHighlight, setFilterHighlight] = useState(1);
 
   const fetchNewsFiltered = async (tipo: string) => {
-    const data = await fetchAPIFiltered(tipo, 20, 1);
+    const data = await fetchAPIFiltered(tipo, 10, 1);
     updateNews(data.items);
   };
 
   const fetchNews = async () => {
-    const data = await fetchAPI(20, 1);
+    const data = await fetchAPI(10, 1);
     updateNews(data.items);
   };
 
@@ -35,11 +38,10 @@ function Home() {
     }
 
     if (filter === 4) {
-      const favorites = JSON.parse(localStorage.getItem('favoritesNews') as string) || [];
+      const favoritesStorage = JSON
+        .parse(localStorage.getItem('favoritesNews') as string) || [];
 
-      if (favorites.length > 0) {
-        updateNews(favorites);
-      }
+      setFavorites(favoritesStorage);
       setFilterHighlight(filter);
       return;
     }
@@ -49,6 +51,9 @@ function Home() {
   };
 
   const highlightNews = news[0];
+  const msgNoResult = (filterHighlight === 4)
+    ? 'Você ainda não possui favoritos'
+    : 'Nenhum resultado encontrado';
 
   if (!highlightNews) {
     return <div>Loading...</div>;
@@ -81,8 +86,9 @@ function Home() {
             Favoritos
           </button>
         </FilterWrapper>
-
-        <NewsGallery news={ news } />
+        { (favorites.length === 0 && filterHighlight === 4) && <p>{ msgNoResult }</p> }
+        { filterHighlight !== 4 && <NewsGallery news={ news } /> }
+        <MoreNews />
       </MainWrapper>
 
     </>
