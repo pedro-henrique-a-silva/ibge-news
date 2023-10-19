@@ -15,5 +15,8 @@ export type NewsType = {
 
 export type NewsContextType = {
   news: NewsType[],
+  pagination: number,
+  updatePagination: (isFilter: string) => void,
   updateNews: (newNews: NewsType[]) => void,
+  moreNews: (newNews: NewsType[]) => void,
 };
