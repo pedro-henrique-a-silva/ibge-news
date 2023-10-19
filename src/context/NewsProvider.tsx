@@ -9,14 +9,28 @@ type NewsProviderProps = {
 function NewsProvider(props: NewsProviderProps) {
   const { children } = props;
   const [news, setNews] = useState<NewsType[]>([]);
+  const [pagination, setPagination] = useState(1);
+
+  const updatePagination = (isFilter: string) => {
+    if (isFilter === 'beginWith2') {
+      setPagination(2);
+      return;
+    }
+    setPagination((prev) => prev + 1);
+  };
 
   const updateNews = (newNews: NewsType[]) => {
     setNews(newNews);
   };
 
+  const moreNews = (newNews: NewsType[]) => {
+    setNews((prev) => [...prev, ...newNews]);
+  };
+
   useEffect(() => {
     const fetchNews = async () => {
       const apiData = await fetchAPI(10);
+      updatePagination('beginWith2');
       setNews(apiData.items);
     };
     try {
@@ -28,7 +42,10 @@ function NewsProvider(props: NewsProviderProps) {
 
   const contextValue = {
     news,
+    pagination,
+    updatePagination,
     updateNews,
+    moreNews,
   };
   return (
     <NewsContext.Provider value={ contextValue }>
