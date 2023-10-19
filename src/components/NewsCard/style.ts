@@ -17,7 +17,7 @@ export const NewsCardStyled = styled.li`
   border-radius: 0.2rem;
   box-shadow: 0 0 10px hsla(199, 17%, 18%, 0.1);
   border: 1px solid hsla(199, 17%, 18%, 0.2);
-  /* animation: ${appearFromBottom} 0.7s; */
+  animation: ${appearFromBottom} 0.7s;
   
   & img {
     width: 100%;
