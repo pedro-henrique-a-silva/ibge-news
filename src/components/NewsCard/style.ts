@@ -40,7 +40,7 @@ export const NewsCardStyled = styled.li`
 `;
 
 export const ResumeIntro = styled.p`
-  min-height: 120px;
+  min-height: 150px;
   font-size: 0.7rem;
   line-height: 1.1rem;
   margin-bottom: 0.7rem;
@@ -61,6 +61,8 @@ export const FavoritWrapper = styled.div`
   justify-content: space-between;
   margin-top: 1rem;
   font-size: 0.7rem;
+  border-top: 1px solid rgba(38, 49, 54, 0.1);
+  padding-top: 10px;
 
   & svg {
     cursor: pointer;

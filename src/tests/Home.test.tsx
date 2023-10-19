@@ -6,6 +6,7 @@ import mockData from './mocks/mockFetch';
 import mockRelease from './mocks/mockRelease';
 import mockNoticia from './mocks/mockNoticia';
 import mockFavoritos from './mocks/mockFavoritos';
+import mockMoreNews from './mocks/mockMoreNews';
 
 const NEWS_GALLERY_ID = '#news-gallery';
 
@@ -16,6 +17,9 @@ afterEach(() => {
 
 describe('Testando se notícias renderizam corretamente', () => {
   test('Verifica renderização da notícia em destaque', async () => {
+    vi.spyOn(global, 'fetch').mockResolvedValue({
+      json: async () => mockData,
+    } as Response);
     const { container } = renderWithRouter(<App />);
 
     await waitForElementToBeRemoved(() => screen.getByText(/Loading.../i));
@@ -127,6 +131,40 @@ describe('Testando se notícias renderizam corretamente', () => {
     expect(news.length).toBe(mockFavoritos.length);
 
     mockFavoritos.forEach((item, index) => {
+      const newsTitle = news[index].querySelector('h3');
+      expect(newsTitle?.textContent).toBe(item.titulo);
+    });
+  });
+
+  test('Testando botão de mais notícias', async () => {
+    vi.spyOn(global, 'fetch').mockResolvedValueOnce({
+      json: async () => mockData,
+    } as Response)
+      .mockResolvedValueOnce({
+        json: async () => mockMoreNews,
+      } as Response);
+
+    const allNews = [...mockData.items, ...mockMoreNews.items];
+
+    const { container, user } = renderWithRouter(<App />);
+
+    await waitForElementToBeRemoved(() => screen.getByText(/Loading.../i));
+
+    const moreNewsButton = screen.getByRole('button', {
+      name: /morenews/i,
+    });
+
+    await act(async () => {
+      await user.click(moreNewsButton);
+    });
+
+    const newsGallery = container.querySelector(NEWS_GALLERY_ID);
+
+    const news = newsGallery!.querySelectorAll('li');
+
+    expect(news.length).toBe(allNews.length);
+
+    allNews.forEach((item, index) => {
       const newsTitle = news[index].querySelector('h3');
       expect(newsTitle?.textContent).toBe(item.titulo);
     });
