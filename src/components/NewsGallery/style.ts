@@ -8,12 +8,20 @@ export const NewsGalleryWrapper = styled.ul`
   /* justify-content: center; */
   /* flex: 1; */
   
+  & li {
+    width: 270px;
+  }
 
   @media (max-width: 768px) {
     align-items: stretch;
+    justify-content: center;
     
     & img {
       width: 100%;
+    }
+    
+    & li {
+      width: 90%;
     }
   }
 
@@ -23,7 +31,5 @@ export const NewsGalleryWrapper = styled.ul`
     align-items: stretch;
   }
  
-  & li {
-    width: 270px;
-  }
+  
 `;
