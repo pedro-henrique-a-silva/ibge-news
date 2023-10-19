@@ -1,15 +1,15 @@
 # PROJETO IBGE news
 
-Esse é um projeto feito em React com a utilização do super-set *Typescript* da linguagem javascript.
+Esse é um projeto feito em React com a utilização do super-set **Typescript** da linguagem javascript.
 
 No projeto IBGE news estou consumindo uma API de noticias do ibge, e a ideia aqui é consumir essa api
 e listar as noticias na tela proporcionando a possibilidade de o usuario filtrar as noticias e favoritar se for o caso.
 
-Para conseguir consumir esses dados foi utilizado uma funcionalidade nativa do javascript que é a função *fetch*.
+Para conseguir consumir esses dados foi utilizado uma funcionalidade nativa do javascript que é a função **fetch**.
 
-Foi utilizado também o *ContextAPI* para gerenciar estados globais a aplicação até para facilitar algumas interações, e evitar também o chamado prop-drilling.
+Foi utilizado também o **ContextAPI** para gerenciar estados globais a aplicação até para facilitar algumas interações, e evitar também o chamado prop-drilling.
 
-Para o estilo do projeto utilizei a biblioteca *styled-components*, gosto bastante dela pois ajuda a evitar conflitos de classe no css, então já da pra tirar essa preocupação do projeto.
+Para o estilo do projeto utilizei a biblioteca **styled-components**, gosto bastante dela pois ajuda a evitar conflitos de classe no css, então já da pra tirar essa preocupação do projeto.
 
 e por ultimo mais não menos importante, realizei alguns testes durante toda a criação do projeto, realizando esses testes a cada etapa do desenvolvimento, para ter certeza de tudo esta funcionando corretamente.
 
