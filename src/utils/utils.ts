@@ -30,3 +30,10 @@ export const differenceInDays = (date: string) => {
 
   return diferencaEmDias;
 };
+
+export const FILTERS_NAME = {
+  1: 'destaques',
+  2: 'release',
+  3: 'noticia',
+  4: 'favoritos',
+};
