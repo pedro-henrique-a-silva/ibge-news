@@ -3,37 +3,26 @@ import NewsContext from '../context/NewsContext';
 import Header from '../components/Header/Header';
 import NewsGallery from '../components/NewsGallery/NewsGallery';
 import { FilterWrapper, MainWrapper } from './style';
-import { fetchAPIFiltered, fetchAPI } from '../utils/utils';
+import { fetchAPIFiltered, fetchAPI, FILTERS_NAME } from '../utils/utils';
 import HighlightNews from '../components/HighlightNews/HighlightNews';
 import { NewsType } from '../types';
 import MoreNews from '../components/MoreNews/MoreNews';
 
-const FILTERS_NAME = {
-  1: 'destaques',
-  2: 'release',
-  3: 'noticia',
-  4: 'favoritos',
-};
-
 function Home() {
-  const { news, updateNews } = useContext(NewsContext);
+  const {
+    news,
+    updateNews,
+    updatePagination,
+  } = useContext(NewsContext);
   const [favorites, setFavorites] = useState<NewsType[]>([]);
   const [filterHighlight, setFilterHighlight] = useState(1);
 
-  const fetchNewsFiltered = async (tipo: string) => {
-    const data = await fetchAPIFiltered(tipo, 10, 1);
-    updateNews(data.items);
-  };
-
-  const fetchNews = async () => {
-    const data = await fetchAPI(10, 1);
-    updateNews(data.items);
-  };
-
-  const handleFilter = (filter: number) => {
+  const handleFilter = async (filter: number) => {
     if (filter === 2 || filter === 3) {
-      fetchNewsFiltered(FILTERS_NAME[filter]);
+      const data = await fetchAPIFiltered(FILTERS_NAME[filter], 10, 1);
+      updateNews(data.items);
       setFilterHighlight(filter);
+      updatePagination('beginWith2');
       return;
     }
 
@@ -46,8 +35,10 @@ function Home() {
       return;
     }
 
-    fetchNews();
+    const data = await fetchAPI(10, 1);
+    updateNews(data.items);
     setFilterHighlight(filter);
+    updatePagination('beginWith2');
   };
 
   const highlightNews = news[0];
@@ -88,7 +79,9 @@ function Home() {
         </FilterWrapper>
         { (favorites.length === 0 && filterHighlight === 4) && <p>{ msgNoResult }</p> }
         { filterHighlight !== 4 && <NewsGallery news={ news } /> }
-        <MoreNews />
+        { filterHighlight === 4 && <NewsGallery news={ favorites } /> }
+        { filterHighlight !== 4 && <MoreNews filterHighlight={ filterHighlight } /> }
+
       </MainWrapper>
 
     </>
