@@ -25,9 +25,9 @@ function HighlightNews(props: HighlightNewsProps) {
         <p>{highlightNews.introducao}</p>
         <ReadMoreWrapper>
           <p>
-            {daysBefore}
-            {' '}
-            dias atrás
+            {(daysBefore === 0)
+              ? 'menos de 1 dia atrás'
+              : `${daysBefore} dias atrás`}
           </p>
           <ReadMoreButton
             href={ highlightNews.link }

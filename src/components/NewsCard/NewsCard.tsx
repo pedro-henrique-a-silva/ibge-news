@@ -71,9 +71,10 @@ function NewsCard(props: NewsCardProps) {
       </div>
       <FavoritWrapper>
         <DaysParagraph>
-          {daysBefore}
-          {' '}
-          dias atrás
+          {(daysBefore === 0)
+            ? 'menos de 1 dia atrás'
+            : `${daysBefore} dias atrás`}
+
         </DaysParagraph>
         {(isFavorite)
           ? (<Heart
