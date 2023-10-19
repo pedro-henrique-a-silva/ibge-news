@@ -12,5 +12,12 @@ export const MoreNewsWrapper = styled.div`
     margin: 1rem 0;
     border: 1px solid #263136;
     cursor: pointer;
+    transition: all 0.5s ease;
+  }
+
+  & button:hover {
+    transform: scale(1.1);
+    background: #263136;
+    color: #fff;
   }
 `;
